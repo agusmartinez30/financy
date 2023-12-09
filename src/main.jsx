@@ -6,11 +6,11 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import DetailCategory from './components/DetailCategory.jsx';
 import CreateCategory from './components/billsy/CreateCategory.jsx';
 import Add from './pages/Add.jsx';
 import AddMovements from './pages/AddMovements.jsx';
 import AddCategory from './pages/AddCategory.jsx';
+import DetailCategory from './pages/DetailCategory.jsx';
 
 
 const router = createBrowserRouter([

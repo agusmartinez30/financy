@@ -28,40 +28,39 @@ const DetailCategory = () => {
 
   return (
     <>
-      <main className=" w-full md:w-1/2 h-screen md:m-auto  p-6 bg-[#fffdfd] ">
-        <header className=" flex flex-col gap-3">
-          <button onClick={() => navigate("/")}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-chevron-left"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="#000"
-              fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M15 6l-6 6l6 6" />
-            </svg>
-          </button>
-          <h3 className="text-xl text-center font-semibold text-[#000] ">
-            {nameCategory}
-          </h3>
-        </header>
+      <main className="w-full md:m-auto h-screen   p-6 bg-[#fffdfd]">
+        <div className="w-full md:w-2/5 m-auto h-[60%]  md:h-[50%] grid items-center">
+          <header className=" flex flex-col gap-3">
+            <button onClick={() => navigate("/")}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-chevron-left"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#000"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M15 6l-6 6l6 6" />
+              </svg>
+            </button>
+            <h3 className="text-xl text-center font-semibold text-[#000] ">
+              {nameCategory}
+            </h3>
+          </header>
 
-        <section className=" py-3 flex flex-col  gap-3">
-          {!movements.length && (
-            <p className="text-[#793FDF] text-xl text-center">
-              No movements found.
-            </p>
-          )}
-          {movements
-            .reverse()
-            .map((d) => (
-              <div className="card w-full bg-[#225560] shadow-xl">
+          <section className=" py-3 flex flex-col  gap-3">
+            {!movements.length && (
+              <p className="text-[#793FDF] text-xl text-center">
+                No movements found.
+              </p>
+            )}
+            {movements.reverse().map((d) => (
+              <div className="card w-full bg-[#7480FF] shadow-xl">
                 <div className="p-6 d-flex flex items-center justify-between">
                   <div>
                     <h2 className="card-title text-xl text-gray-50">
@@ -78,7 +77,8 @@ const DetailCategory = () => {
                 </div>
               </div>
             ))}
-        </section>
+          </section>
+        </div>
       </main>
     </>
   );

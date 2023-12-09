@@ -30,7 +30,7 @@ const ListMovements = () => {
   };
 
   return (
-    <section className="flex flex-col py-3 gap-2 ">
+    <section className="grid md:grid-cols-3 flex-col py-4 gap-4 ">
       {!statics.length && (
         <p className="text-[#793FDF] text-xl text-center">
           No movements found.
@@ -40,12 +40,12 @@ const ListMovements = () => {
       )}
       {statics.map((d, idx) => (
         <div
-          className={`card w-full bg-[#225560] shadow-xl`}
+          className={`card w-full bg-[#313131] shadow-xl cursor-pointer`}
           key={d.id}
           onClick={(e) => navigate(`/category/movementes/${d.name}`)}
         >
           <div className="card-body">
-            <h2 className="card-title text-2xl font-medium text-gray-50">
+            <h2 className="card-title text-2xl font-medium text-[#687EFF]">
               {d.name}
             </h2>
             <p className="text-3xl text-gray-50 font-bold">

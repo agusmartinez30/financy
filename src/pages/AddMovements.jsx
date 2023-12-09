@@ -72,73 +72,74 @@ const AddMovements = () => {
   };
 
   return (
-    <main className=" w-full md:w-1/2 md:m-auto h-screen p-6 bg-[#fffdfd]">
-      <header className="w-full text-center flex gap-6 py-6 ">
-        <button onClick={() => navigate("/add")}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-chevron-left"
-            width="35"
-            height="35"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="#000"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M15 6l-6 6l6 6" />
-          </svg>
-        </button>
-      </header>
-      <h2 className="text-[#000] text-center text-xl">Add new movements</h2>
-      <section className="grid  content-center py-6 gap-6 ">
-        <form className="grid gap-6" onSubmit={(e) => saveData(e)}>
-          <div className="">
-            <label className="form-control w-full">
-              <div className="label">
-                <span className="text-md text-[#000]">Category</span>
-              </div>
-              <select
-                onChange={(e) => setCategory(e.target.value)}
-                className="select select-bordered w-full"
-              >
-                <option>Select category</option>
+    <main className="w-full md:m-auto h-screen   p-6 bg-[#fffdfd]">
+      <div className="w-full md:w-2/5 m-auto h-[60%]  md:h-[100%] grid items-center">
+        <header className="w-full text-center flex gap-6 py-6 ">
+          <button onClick={() => navigate("/add")}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-chevron-left"
+              width="35"
+              height="35"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#000"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M15 6l-6 6l6 6" />
+            </svg>
+          </button>
+        </header>
+        <h2 className="text-[#000] text-center text-xl">Add new movements</h2>
+        <section className="grid  content-center py-6 gap-6 ">
+          <form className="grid gap-6" onSubmit={(e) => saveData(e)}>
+            <div className="">
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="text-md text-[#000]">Category</span>
+                </div>
+                <select
+                  onChange={(e) => setCategory(e.target.value)}
+                  className="select select-bordered w-full"
+                >
+                  <option>Select category</option>
 
-                {categories.length &&
-                  categories.map((c) => <option>{c.name}</option>)}
-                {!categories.length && <option>Not categories found</option>}
-              </select>
-            </label>
-          </div>
-          <div className="">
-            <label className="form-control w-full">
-              <div className="label">
-                <span className="text-md text-[#000]">Description</span>
-              </div>
-              <input
-                type="text"
-                placeholder="..."
-                className="input input-bordered input-accent w-full "
-                onChange={(e) => setName(e.target.value)}
-              />
-            </label>
-          </div>
-          <div className="">
-            <label className="form-control w-full">
-              <div className="label">
-                <span className="text-md text-[#000]">Amount</span>
-              </div>
-              <input
-                type="number"
-                placeholder="..."
-                className="input input-bordered w-full"
-                onChange={(e) => setAmount(e.target.value)}
-              />
-            </label>
-          </div>
-          {/* <div>
+                  {categories.length &&
+                    categories.map((c) => <option>{c.name}</option>)}
+                  {!categories.length && <option>Not categories found</option>}
+                </select>
+              </label>
+            </div>
+            <div className="">
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="text-md text-[#000]">Description</span>
+                </div>
+                <input
+                  type="text"
+                  placeholder="..."
+                  className="input input-bordered input-accent w-full "
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </label>
+            </div>
+            <div className="">
+              <label className="form-control w-full">
+                <div className="label">
+                  <span className="text-md text-[#000]">Amount</span>
+                </div>
+                <input
+                  type="number"
+                  placeholder="..."
+                  className="input input-bordered w-full"
+                  onChange={(e) => setAmount(e.target.value)}
+                />
+              </label>
+            </div>
+            {/* <div>
             <label className="form-control w-full ">
               <div className="label">
                 <span className="label-text">Amount</span>
@@ -151,11 +152,12 @@ const AddMovements = () => {
               />
             </label>
           </div> */}
-          <footer className="py-6">
-            <button  className="btn btn-primary w-full" >ADD</button>
-          </footer>
-        </form>
-      </section>
+            <footer className="py-6">
+              <button className="btn btn-primary w-full">ADD</button>
+            </footer>
+          </form>
+        </section>
+      </div>
     </main>
   );
 };
