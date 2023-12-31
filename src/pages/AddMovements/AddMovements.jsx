@@ -8,6 +8,7 @@ const AddMovements = () => {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState("");
+  const [error, setError] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -102,7 +103,7 @@ const AddMovements = () => {
                   <span className="text-md text-[#000]">Category</span>
                 </div>
                 <select
-                  onChange={(e) => setCategory(e.target.value)}
+                  onChange={(e) => {setCategory(e.target.value), setError(false)}}
                   className="select select-bordered w-full"
                 >
                   <option>Select category</option>
@@ -122,7 +123,7 @@ const AddMovements = () => {
                   type="text"
                   placeholder="..."
                   className="input input-bordered input-accent w-full "
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => { setName(e.target.value) , setError(false)} }
                 />
               </label>
             </div>
@@ -135,7 +136,7 @@ const AddMovements = () => {
                   type="number"
                   placeholder="..."
                   className="input input-bordered w-full"
-                  onChange={(e) => setAmount(e.target.value)}
+                  onChange={(e) => {setAmount(e.target.value), setError(false)} }
                 />
               </label>
             </div>
@@ -153,10 +154,10 @@ const AddMovements = () => {
             </label>
           </div> */}
             <footer className="py-6">
-              <button className="btn btn-primary w-full">ADD</button>
+              <button className="btn btn-primary w-full" disabled={error ? true : false} >ADD</button>
             </footer>
           </form>
-        </section>
+        </section> 
       </div>
     </main>
   );

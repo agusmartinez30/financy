@@ -2,9 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const AddCategory = () => {
+const AddCategories = () => {
   const [name, setName] = useState("");
-  const [amount, setAmount] = useState(0);
   const navigate = useNavigate();
 
   function obtenerColorAleatorio() {
@@ -109,4 +108,4 @@ const AddCategory = () => {
   );
 };
 
-export default AddCategory;
+export default AddCategories;

@@ -11,7 +11,7 @@ const Add = () => {
 
   return (
     <footer className="md:hidden  fixed bottom-10 left-0 w-[100%] p-4 grid place-content-center ">
-      <button onClick={(e) => navigate(`/add`)} className="btn btn-wide btn-primary">
+      <button onClick={(e) => navigate(`/add`)} className="btn btn-wide bg-[#001C30]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-plus"

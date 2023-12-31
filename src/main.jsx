@@ -7,10 +7,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import CreateCategory from './components/billsy/CreateCategory.jsx';
-import Add from './pages/Add.jsx';
-import AddMovements from './pages/AddMovements.jsx';
-import AddCategory from './pages/AddCategory.jsx';
-import DetailCategory from './pages/DetailCategory.jsx';
+import Add from './pages/Add/Add.jsx';
+import AddCategories from './pages/AddCategories/AddCategories.jsx';
+import AddMovements from './pages/AddMovements/AddMovements.jsx';
+import DetailCategory from './pages/DetailCategory/DetailCategory.jsx';
 
 
 const router = createBrowserRouter([
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/add/category",
-    element: <AddCategory />,
+    element: <AddCategories />,
   },
   {
     path: "/category/movementes/:nameCategory",

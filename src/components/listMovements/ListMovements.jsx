@@ -1,13 +1,13 @@
 import React from "react";
-import { staticsData } from "../../data.jsx";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Card from "../Card/Card.jsx";
+import { useEffect } from "react";
 
 const ListMovements = () => {
   const [statics, setStatics] = useState(
     JSON.parse(localStorage.getItem("categories")) || []
   );
-  const navigate = useNavigate();
+  let [categories, setCategories] = useState([])
 
   const colors = ["#54457f", "#77bfa3", "#b4e33d", "#7a306c", "#2274a5"];
 
@@ -29,48 +29,32 @@ const ListMovements = () => {
     return classReturn;
   };
 
-  return (
-    <section className="grid md:grid-cols-3 flex-col py-4 gap-4 ">
-      {!statics.length && (
-        <p className="text-[#793FDF] text-xl text-center">
-          No movements found.
-          <br/>
-          <span>add a category to get started</span>
-        </p>
-      )}
-      {statics.map((d, idx) => (
-        <div
-          className={`card w-full bg-[#313131] shadow-xl cursor-pointer`}
-          key={d.id}
-          onClick={(e) => navigate(`/category/movementes/${d.name}`)}
-        >
-          <div className="card-body">
-            <h2 className="card-title text-2xl font-medium text-[#687EFF]">
-              {d.name}
-            </h2>
-            <p className="text-3xl text-gray-50 font-bold">
-              {" "}
-              ${d.amount.toLocaleString()}
-            </p>
-          </div>
-        </div>
+  const handleDeleteCategory = (id) => {
+    // Filtrar las categorías y actualizar el estado
+    const updatedCategories = categories.filter((category) => category.id !== id);
+    setCategories(updatedCategories);
 
-        // <article
-        //   key={d.id}
-        //   onClick={(e) => navigate(`/category/movementes/${d.name}`)}
-        //   className={` bg-[#687EFF] w-full h[120px] p-4`}
-        // >
-        //   {d.finalAmount && (
-        //     <span className="text-3xl text-white ">{d.finalAmount} K</span>
-        //   )}
-        //   <div className="flex justify-between items-center">
-        //     <span className="text-6xl text-white font-semibold">
-        //       {d.amount} k
-        //     </span>
-        //     <span className="text-3xl text-white ">{d.name}</span>
-        //   </div>
-        // </article>
+    // Guardar el array actualizado en el localStorage
+    localStorage.setItem('categories', JSON.stringify(updatedCategories));
+  };
+
+  useEffect(() => {
+    // Cargar las categorías desde el localStorage al montar el componente
+    const storedCategories = JSON.parse(localStorage.getItem('categories')) || [];
+    setCategories(storedCategories);
+  }, []);
+
+  return (
+    <>
+    <section className="grid grid-cols-1 md:grid-cols-3 flex-col py-4 gap-4  place-content-center ">
+      
+      {categories.map((category, idx) => (
+        <Card  
+          category={category} 
+          onDeleteCategory={handleDeleteCategory}
+        />
       ))}
+     
       {/* <article
         onClick={(e) => handleAddCategory(e)}
         className="bg-[#000000] col-span-2 rounded-md grid place-content-center py-3"
@@ -78,6 +62,17 @@ const ListMovements = () => {
         <span className="text-md text-white ">ADD CATEGORY</span>
       </article> */}
     </section>
+    {!statics.length && (
+        <div className="relative top-8">
+
+        <p className="text-[#000] text-xl text-center">
+          No movements found.
+          <br/>
+          <span>add a category to get started</span>
+        </p>
+        </div>
+      )}
+    </>
   );
 };
 
